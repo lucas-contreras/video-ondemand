@@ -19,7 +19,7 @@ const AppRouter = () => {
 				</div>
 				<Provider store={store}>
 					<Route path="/" exact component={homeContainer}></Route>
-					<Route path="/details/" component={() => <div>hola mundo</div>} />
+					<Route path="/details/:id" component={() => <div>hola mundo</div>} />
 				</Provider>
 			</div>
 		</BrowserRouter>
