@@ -24,11 +24,12 @@ module.exports = function (env, args) {
 		},
 		output: {
 			path: __dirname + "/dist",
-			filename: "bundle.js"
+			filename: "bundle.js",
+			publicPath: "/"
 		},
 		devServer: {
-			publicPath: "/dist/",
-			port: 8080
+			port: 8080,
+			historyApiFallback: true
 		}
 	};
 };

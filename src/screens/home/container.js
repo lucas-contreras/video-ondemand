@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 
+import { Methods } from "./actions/homeActions";
 import Index from "./index";
 
 const mapStateToProps = (state) => {
@@ -7,7 +8,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return ({});
+    return ({
+        getData: () =>{
+            dispatch(Methods.getData());
+        }
+    });
 };
 
 /**
