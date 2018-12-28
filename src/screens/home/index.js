@@ -1,5 +1,4 @@
 import React from "react";
-
 import AliceCarousel from "react-alice-carousel"
 import "react-alice-carousel/lib/alice-carousel.css";
 import Fab from "@material-ui/core/Fab";
@@ -8,19 +7,8 @@ import ArrowForwardIos from "@material-ui/icons/ArrowForwardIos";
 
 import CardVideo from "./components/cardVideo";
 
-const responsive = {
-	0: {
-		items: 1
-	},
-	1024: {
-		items: 4
-	}
-}
-
-const stagePadding = {
-	paddingLeft: 56,
-	paddingRight: 0
-}
+const responsive = { 0: { items: 1 }, 1024: { items: 4 } }
+const stagePadding = { paddingLeft: 56, paddingRight: 0 }
 
 export default class Home extends React.Component {
 	constructor(props) {
@@ -60,8 +48,6 @@ export default class Home extends React.Component {
 	}
 
 	render() {
-
-
 		return (
 			<div style={{ position: "relative", marginTop: "10px" }}>
 				<div style={{ position: "absolute", zIndex: 1, top: "40%", left: "5px" }} >

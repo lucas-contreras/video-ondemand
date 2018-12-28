@@ -6,12 +6,11 @@ export const DETAILS_CLEAN_STATE = "DETAILS_CLEAN_STATE";
 /** */
 export function getDataByUudi(uuid) {
     return (dispatch) => {
-        debugger;
-        setTimeout(() => {
-            dispatch({ type: DETAILS_GET_DATA, uuid });
-        }, 2000);
+        // setTimeout(() => {
+        //     dispatch({ type: DETAILS_GET_DATA, uuid });
+        // }, 2000);
 
-        //dispatch({ type: DETAILS_GET_DATA, uuid });
+        dispatch({ type: DETAILS_GET_DATA, uuid });
     }
 }
 /** */
