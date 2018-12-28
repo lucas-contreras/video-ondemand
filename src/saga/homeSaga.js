@@ -4,7 +4,7 @@ import { get, easyEndpoint, hardEndpoint } from "../services";
 
 function* getData() {
     try {
-        const result = yield call(get, easyEndpoint);
+        const result = yield call(get, hardEndpoint);
 
         yield put({ type: Constants.HOME_GET_DATA_SUCCESS, data: result.Content });
     } catch (error) {

@@ -6,6 +6,7 @@ import ArrowBackIos from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIos from "@material-ui/icons/ArrowForwardIos";
 
 import CardVideo from "./components/cardVideo";
+import ImgCND from "../../components/imgCND";
 
 const responsive = { 0: { items: 1 }, 1024: { items: 4 } }
 const stagePadding = { paddingLeft: 56, paddingRight: 0 }
@@ -36,6 +37,12 @@ export default class Home extends React.Component {
 	}
 
 	onRenderItems() {
+		if (this.props.error) {
+			return (
+				[<ImgCND />]
+			);
+		}
+
 		return this.props.data.map(d => {
 			return (
 				<CardVideo data={d} redirectToDetails={this.redirectToDetails} />
