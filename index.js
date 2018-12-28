@@ -12,11 +12,7 @@ const AppRouter = () => {
 	return (
 		<BrowserRouter>
 			<div>
-				<div>
-					<NavBar />
-					<Link to="/" title="asd">Home</Link>
-					<Link to="/details/" title="asd">Details</Link>
-				</div>
+				<NavBar />
 				<Provider store={store}>
 					<Route path="/" exact component={homeContainer}></Route>
 					<Route path="/details/:id" component={() => <div>hola mundo</div>} />
