@@ -19,9 +19,12 @@ export default class Details extends React.Component {
 		);
 	}
 
+	goBack = () => {
+		this.props.history.goBack();
+	}
+
 	componentDidMount() {
 		const { id } = this.props.match.params;
-
 		this.props.getDataByUudi(id);
 	}
 
@@ -30,6 +33,7 @@ export default class Details extends React.Component {
 	}
 
 	render() {
+		const { goBack } = this;
 		const { loading, loaded, data } = this.props;
 
 		if (loading) {
@@ -45,7 +49,7 @@ export default class Details extends React.Component {
 				<Grid container >
 					<Grid item xs={12} md={12}>
 						<Paper style={{ minHeight: "529px", width: "100%", textAlign: "right", position: "relative", backgroundColor: "#141414" }} >
-							<CardDetails data={data} />
+							<CardDetails data={data} goBack={goBack} />
 							<div>
 								<AliceCarousel
 									dotsDisabled

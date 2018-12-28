@@ -25,7 +25,6 @@ const NavBar = (props) => {
                     <Typography variant="h6" color="inherit" style={styles.grow}>
                         Video Ondemand
                     </Typography>
-                    <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
         </div>

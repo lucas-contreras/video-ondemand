@@ -1,9 +1,12 @@
-import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-
+import React from "react";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow"
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos"
+import IconButton from "@material-ui/core/IconButton";
 import PopoverDetails from "../components/popoverDetails";
 
 const styles = {
@@ -18,33 +21,40 @@ const styles = {
         boxShadow: "none"
     },
     bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
+        display: "inline-block",
+        margin: "0 2px",
+        transform: "scale(0.8)",
     },
     title: {
         fontSize: 14,
         color: "white"
     },
     pos: {
-        marginTop: 20,
+        marginTop: 10,
         color: "white",
         maxWidth: "400px"
     },
     chipRoot: {
-        display: 'flex',
-        flexWrap: 'wrap',
+        display: "flex",
+        flexWrap: "wrap",
     },
 };
 
-const SimpleCard = ({ data }) => {
-    const { cast, countries, short_summary, genres, metadata } = data;
+const SimpleCard = (props) => {
+    const { data, goBack } = props;
+    const { cast, content_type, countries, genres, metadata, runtime, short_summary } = data;
 
     return (
         <Card style={styles.card}>
             <CardContent>
                 <Typography variant="h3" component="h2" style={{ color: "white" }} >
+                    <IconButton style={{ color: "white" }} onClick={() => goBack()}>
+                        <ArrowBackIosIcon />
+                    </IconButton>
                     {metadata.titulo_internacional}
+                </Typography>
+                <Typography component="p" style={styles.pos}>
+                    {content_type} {runtime} minutos
                 </Typography>
                 <Typography component="p" style={styles.pos}>
                     {short_summary}
@@ -73,6 +83,10 @@ const SimpleCard = ({ data }) => {
                 </Typography>
             </CardContent>
             <CardActions>
+                <Button variant="contained" color="secondary">
+                    <PlayArrowIcon />
+                    Reproducir
+                </Button>
             </CardActions>
         </Card>
     );
