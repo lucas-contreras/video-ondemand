@@ -1,18 +1,22 @@
 import { connect } from "react-redux";
 
-import { Methods } from "./actions/homeActions";
+import { Methods } from "./actions/detailsActions";
 import Index from "./index";
+
 
 const mapStateToProps = (state) => {
     return {
-        ...state.homeStore
+        ...state.detailsStore
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        getData: () =>{
-            dispatch(Methods.getData());
+        getDataByUudi: (uuid) => {
+            dispatch(Methods.getDataByUudi(uuid))
+        },
+        cleanState: () =>{
+            dispatch(Methods.cleanState())
         }
     });
 };

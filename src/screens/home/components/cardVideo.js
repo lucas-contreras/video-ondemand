@@ -39,12 +39,12 @@ const formatString = (value) => {
 }
 
 const CardVideo = (props) => {
-    const { metadata, short_summary } = props.data;
+    const { uuid, metadata, short_summary } = props.data;
     const { img_large, img_medium, img_tv, titulo_internacional } = metadata
 
     return (
         <Card style={styles.card}>
-            <CardActionArea onClick={() => alert("asd")} onDragStart={e => e.preventDefault()}>
+            <CardActionArea onClick={() => props.redirectToDetails(uuid)} onDragStart={e => e.preventDefault()}>
                 <CardMedia
                     style={styles.media}
                     image={img_tv}

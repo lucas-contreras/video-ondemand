@@ -12,8 +12,6 @@ function* getData() {
     }
 }
 
-function* rootSaga() {
-    yield takeLatest(Constants.HOME_GET_DATA, getData);
-}
-
-export default rootSaga;
+export const homeSaga = [
+    takeLatest(Constants.HOME_GET_DATA, getData)
+];

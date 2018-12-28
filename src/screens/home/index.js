@@ -1,4 +1,5 @@
 import React from "react";
+
 import AliceCarousel from "react-alice-carousel"
 import "react-alice-carousel/lib/alice-carousel.css";
 import Fab from "@material-ui/core/Fab";
@@ -12,7 +13,7 @@ const responsive = {
 		items: 1
 	},
 	1024: {
-		items: 2
+		items: 4
 	}
 }
 
@@ -42,11 +43,14 @@ export default class Home extends React.Component {
 		this.setState({ currentIndex: this.state.currentIndex - 1 })
 	}
 
-	_onRenderItems() {
+	redirectToDetails = (uuid) => {
+		this.props.history.push(`/details/${uuid}`);
+	}
+
+	onRenderItems() {
 		return this.props.data.map(d => {
-			//debugger;
 			return (
-				<CardVideo data={d} />
+				<CardVideo data={d} redirectToDetails={this.redirectToDetails} />
 			)
 		});
 	}
@@ -75,7 +79,7 @@ export default class Home extends React.Component {
 						stagePadding={stagePadding}
 						responsive={responsive}
 						slideToIndex={this.state.currentIndex}
-						items={this._onRenderItems()}
+						items={this.onRenderItems()}
 
 						onSlideChanged={this.onSlideChanged}
 					/>
